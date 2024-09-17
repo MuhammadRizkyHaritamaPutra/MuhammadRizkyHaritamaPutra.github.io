@@ -15,10 +15,11 @@ body {
     box-sizing: border-box;
 }
 
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 30px; 
 }
 
 th, td {
@@ -41,20 +42,39 @@ img {
     box-sizing: border-box;
 }
 
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
 
-.header {
+.info-pesanan {
+    flex: 1;
+    background-color: #f2f2f2;
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-pesanan h2 {
     text-align: center;
-    background-color: #f2f2f2; 
-    color: black; 
+    margin-bottom: 15px;
+}
+
+.info-pesanan p {
+    margin: 10px 0;
+}
+
+.bukti-pemesanan {
+    flex: 2;
     padding: 20px;
-    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .center-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 }
 
 .center-content img {
@@ -77,7 +97,6 @@ input[type="number"] {
     margin: 10px 0;
 }
 
-
 .payment-method {
     padding: 15px;
     margin-bottom: 30px; 
@@ -86,7 +105,6 @@ input[type="number"] {
 .payment-method input[type="radio"] {
     margin-right: 10px;
 }
-
 
 .footer {
     background-color: #f2f2f2; 
@@ -105,17 +123,6 @@ input[type="number"] {
     margin-bottom: 5px;
 }
 
-@media screen and (min-width: 600px) {
-    .header {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    table {
-        margin-top: 20px;
-    }
-}
-
 a {
     color: black; 
     text-decoration: none;
@@ -123,4 +130,11 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+    .info-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
