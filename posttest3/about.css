@@ -22,7 +22,7 @@ html{
     font-size: 16px;
 }
 
-.card-profile{
+.profile{
     background-color: #fafafa;
     width: 60%;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 20%);
@@ -34,31 +34,31 @@ html{
     border-radius: 24px;
 }
 
-.card-profile img{
+.profile img{
     width: 100%;
     overflow: hidden;
     border-radius: 16px;
 
 }
 
-.card-profile .content{
+.profile .deskripsi{
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
 
-.card-profile .content h2{
+.profile .deskripsi h2{
     font-size: 1rem;
     font-weight: 600;
 }
 
-.card-profile .content p{
+.profile .deskripsi p{
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.25rem;
 }
 
-.card-profile .content button{
+.profile .deskripsi button{
     width: 4rem;
     padding: 0.75rem;
     border-radius: 16px;
@@ -66,47 +66,28 @@ html{
     background-color: orange;
 }
 
-.card-profile .content button:hover{
+.profile .deskripsi button:hover{
     background-color: #fafafa;
     border: 1px solid orange;
     cursor: pointer;
     transition: 0.5s;
 }
 
-@media (min-width: 768px) {
-    .card-profile .content h2{
-        font-size: 1.25rem;
-    }
-    
-    .card-profile .content p{
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    .card-profile .content button{
-        width: 6rem;
-        padding: 1rem;
-        font-size: 1.25rem;
-        text-align: center;
-
-    }
-}
-
 @media (min-width: 1024px){
-    .card-profile{
+    .profile{
         width: 30%;
     }
 
-    .card-profile .content h2{
+    .profile .deskripsi h2{
         font-size: 1.5rem;
     }
     
-    .card-profile .content p{
+    .profile .deskripsi p{
         font-size: 1.25rem;
         line-height: 1.75rem;
     }
 
-    .card-profile .content button{
+    .profile .deskripsi button{
         width: 6rem;
         padding: 1.25rem;
         font-size: 1.5rem;
