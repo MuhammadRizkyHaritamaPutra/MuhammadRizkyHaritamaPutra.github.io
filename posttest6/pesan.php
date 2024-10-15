@@ -62,6 +62,7 @@
     include 'koneksi.php'; 
 
     $nama = $nama_obat = $jumlah = $tanggal = '';
+    $file = ''; 
     $error = '';
 
     
@@ -69,6 +70,7 @@
         die("Koneksi gagal: " . mysqli_connect_error());
     }
 
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nama = htmlspecialchars(trim($_POST['nama']));
         $nama_obat = htmlspecialchars(trim($_POST['nama_obat']));
@@ -78,7 +80,7 @@
         
         if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
             $file = $_FILES['file']['name'];
-            $ekstensi_diperbolehkan = array('pdf', 'doc', 'docx', 'png', 'jpg'); 
+            $ekstensi_diperbolehkan = array('pdf', 'doc', 'docx', 'png', 'jpg');
             $x = explode('.', $file);
             $ekstensi = strtolower(end($x));
             $file_tmp = $_FILES['file']['tmp_name'];
@@ -87,15 +89,16 @@
             if ($_FILES['file']['size'] > 1 * 1024 * 1024) {
                 $error .= '<p>Ukuran file tidak boleh lebih dari 1MB.</p>';
             } else {
+                
                 $tanggal_upload = date('Y-m-d-H-i-s');
                 $nama_file_baru = $tanggal_upload . '-' . $file;
-            }
 
+                
                 if (in_array($ekstensi, $ekstensi_diperbolehkan)) {
-                    move_uploaded_file($file_tmp, 'files/' . $nama_file_baru); 
+                    move_uploaded_file($file_tmp, 'files/' . $nama_file_baru);
                     $file = $nama_file_baru; 
                 } else {
-                    $error .= '<p>Ekstensi file yang boleh hanya pdf, doc, docx, jpg, atau png.</p>';
+                    $error .= '<p>Ekstensi file yang diperbolehkan hanya pdf, doc, docx, jpg, atau png.</p>';
                 }
             }
         }
@@ -117,11 +120,11 @@
             $error .= '<p>Tanggal pemesanan harus diisi.</p>';
         }
 
-        
+       
         if (empty($error)) {
             $query = "INSERT INTO pemesanan (nama_pemesan, nama_obat, jumlah_obat, tanggal_pemesanan, file) VALUES (?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($koneksi, $query);
-            
+
             if ($stmt === false) {
                 die("Error preparing statement: " . mysqli_error($koneksi));
             }
